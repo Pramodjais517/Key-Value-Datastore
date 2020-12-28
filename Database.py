@@ -1,7 +1,6 @@
 import json
 import sys
 
-
 class Database:
     ''' 
     accepts the location of the file(if not existing it will create a new one) and provide CRUD on the database.
