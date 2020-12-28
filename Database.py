@@ -35,7 +35,7 @@ class Database:
         Accepts key and value and creates an new entry into the database.
         If key already exists it raises error.
         '''
-        if self.working and self.validate(key, value):
+        if self.working and self.sizevalidate(key, value) and self.typevalidate(key, value):
             self.database[key] = value
             self.save()
         
@@ -100,7 +100,7 @@ class Database:
             self.database = {}
             self.save()
 
-    def validate(self,key, value):
+    def sizevalidate(self,key, value):
         '''
         Validates the size of key and value as per requirement.
         '''
@@ -109,6 +109,15 @@ class Database:
             return False
         if key in self.database:
             print("Error: Can't create. Key already exists.")
+            return False
+        return True
+    
+    def typevalidate(self,key,value):
+        if not type(key) == str :
+            print("Error: Key can only be string.")
+            return False
+        if not type(value) == dict:
+            print("Error: Value can only be json object")
             return False
         return True
 

@@ -14,12 +14,9 @@ d  = db("Student.json")
 
 d.create("Class", {"class":"CSE", "section": "CS-2" } ) 
 d.create("Sports", {"Football":"Outdoor","Chess":"Indoor"})
-
-
 # Create existing key throughs error
-d.create("Class","Gupta")
+# d.create("Class","Gupta")
 #output: "Error: Key already exists."
-
 
 
 ############################# READ #########################################
